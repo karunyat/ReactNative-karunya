@@ -1,0 +1,3 @@
+basic calculator
+
+this calculator takes in two input values and performs basic operations like addition, subtraction
