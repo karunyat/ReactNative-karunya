@@ -1,7 +1,6 @@
 "use strict";
 
 //hiding the operation image
-
 const signimg = document.querySelector(".signimg");
 signimg.classList.add("hidden");
 
@@ -13,6 +12,13 @@ const init = function () {
 };
 init();
 
+//equals button action funtion
+const acteq = function () {
+  document.querySelector(".equal").addEventListener("click", function () {
+    document.querySelector(".result").textContent = result;
+  });
+};
+
 // subtraction
 document.querySelector(".minus").addEventListener("click", function () {
   let result =
@@ -20,10 +26,7 @@ document.querySelector(".minus").addEventListener("click", function () {
     Number(document.querySelector(".in1").value);
   signimg.classList.remove("hidden");
   signimg.src = "minus.jpg";
-
-  document.querySelector(".equal").addEventListener("click", function () {
-    document.querySelector(".result").textContent = result;
-  });
+  acteq();
 });
 
 //addition
@@ -33,10 +36,7 @@ document.querySelector(".plus").addEventListener("click", function () {
     Number(document.querySelector(".in1").value);
   signimg.classList.remove("hidden");
   signimg.src = "plus.jpg";
-
-  document.querySelector(".equal").addEventListener("click", function () {
-    document.querySelector(".result").textContent = result;
-  });
+  acteq();
 });
 
 //multiplication
@@ -46,10 +46,7 @@ document.querySelector(".multiply").addEventListener("click", function () {
     Number(document.querySelector(".in1").value);
   signimg.classList.remove("hidden");
   signimg.src = "multiply.jpg";
-
-  document.querySelector(".equal").addEventListener("click", function () {
-    document.querySelector(".result").textContent = result;
-  });
+  acteq();
 });
 
 //division
@@ -59,10 +56,7 @@ document.querySelector(".divide").addEventListener("click", function () {
     Number(document.querySelector(".in1").value);
   signimg.classList.remove("hidden");
   signimg.src = "divide.jpg";
-
-  document.querySelector(".equal").addEventListener("click", function () {
-    document.querySelector(".result").textContent = result;
-  });
+  acteq();
 });
 
 //calling the initial conditions
