@@ -14,49 +14,53 @@ init();
 
 // subtraction
 document.querySelector(".minus").addEventListener("click", function () {
-  let result =
-    Number(document.querySelector(".in0").value) -
-    Number(document.querySelector(".in1").value);
+ 
   signimg.classList.remove("hidden");
   signimg.src = "minus.jpg";
 
   document.querySelector(".equal").addEventListener("click", function () {
+     let result =
+    Number(document.querySelector(".in0").value) -
+    Number(document.querySelector(".in1").value);
     document.querySelector(".result").textContent = result;
   });
 });
 
 //addition
 document.querySelector(".plus").addEventListener("click", function () {
-  let result =
-    Number(document.querySelector(".in0").value) +
-    Number(document.querySelector(".in1").value);
+ 
   signimg.classList.remove("hidden");
   signimg.src = "plus.jpg";
   document.querySelector(".equal").addEventListener("click", function () {
+     let result =
+    Number(document.querySelector(".in0").value) +
+    Number(document.querySelector(".in1").value);
     document.querySelector(".result").textContent = result;
   });
 });
 
 //multiplication
 document.querySelector(".multiply").addEventListener("click", function () {
-  let result =
-    Number(document.querySelector(".in0").value) *
-    Number(document.querySelector(".in1").value);
+ 
   signimg.classList.remove("hidden");
   signimg.src = "multiply.jpg";
   document.querySelector(".equal").addEventListener("click", function () {
+     let result =
+    Number(document.querySelector(".in0").value) *
+    Number(document.querySelector(".in1").value);
     document.querySelector(".result").textContent = result;
   });
 });
 
 //division
 document.querySelector(".divide").addEventListener("click", function () {
-  let result =
-    Number(document.querySelector(".in0").value) /
-    Number(document.querySelector(".in1").value);
+ 
   signimg.classList.remove("hidden");
   signimg.src = "divide.jpg";
   document.querySelector(".equal").addEventListener("click", function () {
+     let result =
+    Number(document.querySelector(".in0").value) /
+    Number(document.querySelector(".in1").value);
     document.querySelector(".result").textContent = result;
   });
 });
