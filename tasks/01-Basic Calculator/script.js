@@ -10,62 +10,50 @@ const init = function () {
   document.querySelector(".in0").value = 0;
   document.querySelector(".in1").value = 0;
 };
-init();
 
-// subtraction
-document.querySelector(".minus").addEventListener("click", function () {
- 
+//calculating the result and displaying it
+const calculate = function (oprationsign) {
+  let result;
   signimg.classList.remove("hidden");
-  signimg.src = "minus.jpg";
+  signimg.src = `${oprationsign}.jpg`;
 
+  //equals action
   document.querySelector(".equal").addEventListener("click", function () {
-     let result =
-    Number(document.querySelector(".in0").value) -
-    Number(document.querySelector(".in1").value);
+    let input0 = Number(document.querySelector(".in0").value);
+    let input1 = Number(document.querySelector(".in1").value);
+    if (oprationsign === "minus") {
+      result = input0 - input1;
+    }
+    if (oprationsign === "plus") {
+      result = input0 + input1;
+    }
+    if (oprationsign === "divide") {
+      result = input0 / input1;
+    }
+    if (oprationsign === "multiply") {
+      result = input0 * input1;
+    }
+    //displaying result
     document.querySelector(".result").textContent = result;
   });
-});
+};
 
-//addition
+//operation performing events
 document.querySelector(".plus").addEventListener("click", function () {
- 
-  signimg.classList.remove("hidden");
-  signimg.src = "plus.jpg";
-  document.querySelector(".equal").addEventListener("click", function () {
-     let result =
-    Number(document.querySelector(".in0").value) +
-    Number(document.querySelector(".in1").value);
-    document.querySelector(".result").textContent = result;
-  });
+  calculate("plus");
 });
-
-//multiplication
+document.querySelector(".minus").addEventListener("click", function () {
+  calculate("minus");
+});
 document.querySelector(".multiply").addEventListener("click", function () {
- 
-  signimg.classList.remove("hidden");
-  signimg.src = "multiply.jpg";
-  document.querySelector(".equal").addEventListener("click", function () {
-     let result =
-    Number(document.querySelector(".in0").value) *
-    Number(document.querySelector(".in1").value);
-    document.querySelector(".result").textContent = result;
-  });
+  calculate("multiply");
 });
-
-//division
 document.querySelector(".divide").addEventListener("click", function () {
- 
-  signimg.classList.remove("hidden");
-  signimg.src = "divide.jpg";
-  document.querySelector(".equal").addEventListener("click", function () {
-     let result =
-    Number(document.querySelector(".in0").value) /
-    Number(document.querySelector(".in1").value);
-    document.querySelector(".result").textContent = result;
-  });
+  calculate("divide");
 });
 
 //calling the initial conditions
 init();
+
 //clear
 document.querySelector(".clear").addEventListener("click", init);
