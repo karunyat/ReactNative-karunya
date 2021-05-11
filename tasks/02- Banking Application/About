@@ -11,7 +11,14 @@ EVENTS:
 ------------------------------------------------------------------------------------------------------- 
 
 Login : using the credentials given in the data (username,pin)
- 
+
+         Username    |     Pin
+         -------------------------
+            js       |     1111
+            jd       |     2222
+            stw      |     3333
+            ss       |     4444
+            
 Transfer Money : requries Username and the amount to be transfered 
                   condition : transfer amount < balance amount
  
