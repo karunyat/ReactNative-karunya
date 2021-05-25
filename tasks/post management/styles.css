@@ -23,7 +23,7 @@ h1 {
 .eachtitle:hover {
   background-color: rgb(143, 143, 143);
 }
-.modal {
+.postDataPupop {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /*Sit on top */
