@@ -1,0 +1,117 @@
+body {
+  /* background-image: url("bg.jpg"); */
+  background-color: cornsilk;
+  color: rgb(0, 0, 0);
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center center; */
+  /* overflow-x: hidden; */
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  font-family: "Times New Roman";
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+}
+#newPost {
+  width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 99;
+  top: 80px;
+  position: absolute;
+  margin-left: 55%;
+
+  background-color: burlywood;
+  opacity: 0;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 95%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  resize: vertical;
+}
+.input-err {
+  background-color: red;
+}
+
+#newPostCeateBtn {
+  float: right;
+  cursor: pointer;
+  background-color: rgb(202, 143, 143);
+}
+#newPostCeateBtn:hover {
+  color: rgb(102, 101, 101);
+}
+
+/* #viewPost {
+  background-color: burlywood;
+  width: 400px;
+  padding: 10px;
+  border-radius: 0.5rem;
+  z-index: 99;
+  top: 80px;
+  position: absolute;
+  margin-left: 55%;
+  /* opacity: 0; */
+/* background-color: burlywood;} */
+
+#post {
+  background-color: burlywood;
+  width: 400px;
+  padding: 10px;
+  border-radius: 0.5rem;
+  z-index: 99;
+  top: 80px;
+  position: absolute;
+  margin-left: 55%;
+  /* opacity: 0; */
+  /* background-color: burlywood; */
+}
+
+#viewPostCloseBtn {
+  float: right;
+  cursor: pointer;
+  background-color: rgb(202, 143, 143);
+}
+#viewPostCloseBtn:hover {
+  color: rgb(102, 101, 101);
+}
+.disable-model {
+  visibility: hidden;
+}
+.enable-model {
+  visibility: visible;
+}
+i {
+  pointer-events: none;
+}
+.post__row span {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1.3rem;
+  color: black;
+}
+.post__row:not(:last-child) {
+  margin-bottom: 0.3rem;
+}
+
+.eachtitle {
+  border-radius: 0.3rem;
+  border-style: ridge;
+  margin: 0.3rem;
+  width: 40%;
+  padding: 1rem;
+  background-color: rgb(232, 235, 234);
+  cursor: pointer;
+}
+.eachtitle:hover {
+  background-color: rgb(143, 143, 143);
+}

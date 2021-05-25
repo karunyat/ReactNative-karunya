@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1 class="main">Posts Management</h1>
+
+    <div class="title-container"></div>
+
+    <!-- <div class="disable-modal" id="backdrop"></div>
+    <div class="disable-modal" id="viewPost">
+      <button class="closeBtn">close</button>
+      <article class="post"></article>
+    </div> -->
+
+    <!-- <div class="post" id="viewPost">
+       <button id="viewPostCloseBtn" onclick="close()">close</button> 
+    </div> -->
+
+    <div class="disable-modal" id="post"></div>
+    <div class="disable-modal" id="backdrop"></div>
+    <div class="disable-modal" id="newPost">
+      <label for="newPostTitle">Title</label>
+
+      <textarea
+        id="newPostTitle"
+        placeholder="Your Title.."
+        style="height: 50px"
+      ></textarea>
+
+      <label for="newPostBody">Post</label>
+
+      <textarea
+        id="newPostBody"
+        placeholder="Write something.."
+        style="height: 100px"
+      ></textarea>
+
+      <label for="newPostUsername">Username</label>
+
+      <input type="text" id="newPostUsername" placeholder="Username" />
+
+      <button id="newPostCeateBtn">Create</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
