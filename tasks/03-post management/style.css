@@ -1,0 +1,108 @@
+body {
+  background-color: cornsilk;
+  color: rgb(0, 0, 0);
+  padding: 0;
+  margin: 0;
+  font-size: small;
+}
+h1 {
+  font-family: "Times New Roman";
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+}
+.eachtitle {
+  border-radius: 0.3rem;
+  border-style: ridge;
+  margin: 0.3rem;
+  width: 45%;
+  padding: 1rem;
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+}
+.eachtitle:hover {
+  background-color: rgb(185, 185, 185);
+}
+
+.postpopup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /*Sit on top */
+  padding-top: 90px; /* Location of the box */
+  left: 25%;
+  top: 30%;
+
+  /* height: 40%; Full height */
+  font-size: large;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 3px solid rgb(10, 7, 7);
+
+  width: 50%;
+}
+
+.close {
+  color: #000000;
+  float: right;
+  font-size: small;
+  text-align: left;
+  border-radius: 3px;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(29, 28, 28);
+  text-decoration: none;
+  cursor: pointer;
+}
+#newPost {
+  /* display: none; */
+  width: 370px;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+  top: 80px;
+  position: absolute;
+  margin-left: 55%;
+}
+
+input[type="number"],
+select,
+textarea {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#newPostCeateBtn {
+  float: right;
+  cursor: pointer;
+  background-color: rgb(202, 143, 143);
+}
+#newPostCeateBtn:hover {
+  color: rgb(102, 101, 101);
+}
+#newPostCloseBtn {
+  float: left;
+  cursor: pointer;
+  background-color: rgb(202, 143, 143);
+}
+#newPostCloseBtn:hover {
+  color: rgb(102, 101, 101);
+}
+.createBtn {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  border-radius: 30px;
+  font-size: xx-large;
+  background-color: rgb(122, 155, 72);
+  color: rgb(248, 248, 248);
+}
+.createBtn:hover {
+  color: #000000;
+}
