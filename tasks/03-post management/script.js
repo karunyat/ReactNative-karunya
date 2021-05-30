@@ -20,11 +20,12 @@ getPostData();
 //function: title buttons
 const renderPostTitles = function (data) {
   for (const [i, posts] of data.entries()) {
-    const html = `<p><button class="eachtitle"  > TITLE:${posts.title}</button> </p>`;
+    const html = `<p><button class="eachtitle"  > TITLE:${posts.title}</button> </button> <button class="deletePost">X</button></p>`;
     pmContainer.insertAdjacentHTML("beforeend", html);
   }
   //Elements
   let viewPost = document.querySelectorAll(".eachtitle");
+  let deletePost = document.querySelectorAll(".deletePost");
   for (let i = 0; i < viewPost.length; i++) {
     viewPost[i].addEventListener("click", function (postId) {
       postId.preventDefault();
@@ -40,7 +41,7 @@ const viewPostInfo = function (postId) {
         <button class="close">X </button>
         <p class="post__row"><span ></span> <b>${postId.title}</b></p>
          <p class="post__row"><span></span> ${postId.body}</p>
-               <p class="post__row"><span>UserId</span>: ${postId.userId}</p>
+               <p class="post__row" id="username"><span></span></p>
                </div>
                `;
 
@@ -49,6 +50,17 @@ const viewPostInfo = function (postId) {
   pmpostcontainer = document.querySelector(".postpopup");
   let closeBtn = document.querySelectorAll(".close");
 
+  fetch(`http://localhost:3000/users/${postId.userId}`)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (res) {
+      console.log(res.username);
+      // return res.username;
+      const username = document.getElementById("username");
+      username.innerHTML = `UserName: ${res.username}`;
+    });
+
   for (let i = 0; i < closeBtn.length; i++) {
     closeBtn[i].addEventListener("click", function (e) {
       e.preventDefault();
@@ -56,6 +68,15 @@ const viewPostInfo = function (postId) {
     });
   }
 };
+
+function charcounts(startfrom, charend) {
+  var len = document.getElementById(startfrom).value.length;
+  document.getElementById(charend).innerHTML = len;
+}
+function charcount(startsfrom, charends) {
+  var length = document.getElementById(startsfrom).value.length;
+  document.getElementById(charends).innerHTML = length;
+}
 
 //create event handler
 createBtn.addEventListener("click", function (e) {
@@ -66,26 +87,48 @@ createBtn.addEventListener("click", function (e) {
   <label for="newPostTitle">Title</label>
 
       <textarea
-         id="newPostTitle"
+         id="value"
         class="form__input form__input--title"
         placeholder="Your Title.."
         style="height: 50px"
+        maxlength="100"
+        onkeyup="charcounts('value','countchar');"
+        onkeyown="charcounts('value','countchar');"
+        onmouseout="charcounts('value','countchar');"
       ></textarea>
-      <p id="invalidinputs" style="color:red"></p>
+      <h4 style="color:red; margin-top:1px;" >*title should not exceed 100 characters:  <span id="countchar" style="color:red;">0</span></h4>
 
+      <p>
       <label for="newPostBody">Post</label>
 
       <textarea
-        id="newPostBody"
+        id="values"
         class="form__input form__input--body"
         placeholder="Write something.."
         style="height: 100px"
+        maxlength="300"
+        onkeyup="charcount('values','countschar');"
+        onkeyown="charcount('values','countschar');"
+        onmouseout="charcount('values','countschar');"
       ></textarea>
-      <p id="invalidinputs" style="color:red"></p>
+      <h4 style="color:red; margin-top:1px;" >*post body should not exceed 300 characters:  <span id="countschar" style="color:red;">0</span></h4>
+      </p>
+      
       <label for="newPostUsername"
-      >UserId</label>
-
-      <input type="number" id="newPostUsername" placeholder="UserId" class="form__input form__input--userName"  min="1" max="10" />
+      >User Name</label>
+      <select id="newPostUsername"  placeholder="UserId" class="form__input form__input--userName" >
+      <option value="1">Bret</option>
+      <option value="2">Antonette</option>
+      <option value="3" selected>Samantha</option>
+      <option value="4">Karianne</option>
+      <option value="5">Kamren</option>
+      <option value="6">Leopoldo_Corkery</option>
+      <option value="7">Elwyn.Skiles</option>
+      <option value="8">Maxime_Nienow</option>
+      <option value="9">Delphine</option>
+      <option value="10">Moriah.Stanton</option>
+    </select>
+      
       <p id="invaliduserName" style="color:red"></p>
       <button id="newPostCloseBtn">Close</button>
       <button id="newPostCeateBtn">Create</button>
@@ -114,9 +157,6 @@ createBtn.addEventListener("click", function (e) {
     let text;
     if (title == null || body == null) {
       alert("please fill the input fields");
-    } else if (userName > 10) {
-      text = "invalid userId \n only (1-10) userId's avaliable";
-      document.getElementById("invaliduserName").innerHTML = text;
     } else {
       const createPost = function () {
         fetch(`http://localhost:3000/posts`, {

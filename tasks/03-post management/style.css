@@ -23,7 +23,18 @@ h1 {
 .eachtitle:hover {
   background-color: rgb(185, 185, 185);
 }
-
+.deletePost {
+  font-size: large;
+  border-radius: 0.3rem;
+  border-style: ridge;
+  padding: 0.7rem;
+  cursor: pointer;
+  margin: -0.4rem;
+}
+.deletePost:hover {
+  color: #fefefe;
+  background-color: rgb(202, 55, 55);
+}
 .postpopup {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
