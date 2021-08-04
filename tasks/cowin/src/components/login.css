@@ -1,0 +1,36 @@
+input[type="text"] {
+  width: 93%;
+  margin: 17px;
+  padding: 12px 20px;
+  display: inline-block;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid red;
+}
+h2 {
+  margin: 15px;
+}
+.Container {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  padding: 25px;
+  width: 31%;
+}
+button {
+  width: 93%;
+  margin: 15px;
+  background-color: rgb(34, 34, 77);
+  color: white;
+  border-radius: 10px;
+  font-size: larger;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(104, 116, 158);
+}
+.error {
+  color: red;
+}

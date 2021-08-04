@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.Card {
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  border: 3px solid #eee;
+  box-shadow: 5px 5px 5px 5px #ccc;
+  padding: 5px;
+  /* margin: 10px auto; */
+  box-sizing: border-box;
+  background-color: rgb(216, 168, 34);
+}
+.Card p {
+  font-size: 2.5cm;
+  font-weight: bolder;
+  color: rgb(28, 34, 66);
+}
+.SlotBtn {
+  border-radius: 40px;
+  margin-top: 20px;
+  padding: 20px;
+  margin: 30px;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bolder;
+  color: #ccc;
+  background-color: rgb(39, 39, 104);
+}
+.SlotBtn:hover {
+  color: black;
+  background-color: rgb(172, 201, 206);
+}
