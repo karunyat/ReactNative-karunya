@@ -21,7 +21,7 @@ const Login = (props) => {
       })
       .catch((err) => {
         setLoading(false);
-        //console.log("error >>>", err);
+        console.log("error >>>", err);
       });
     // props.history.push("/slotBooking");
   };
@@ -45,7 +45,7 @@ const Login = (props) => {
             />
             <br />
             {error && <p className="error">{error}</p>}
-            <button>GET OTP</button>
+            {/* <button>GET OTP</button> */}
 
             <h2>OTP Verification</h2>
 
