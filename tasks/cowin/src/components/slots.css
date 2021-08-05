@@ -1,0 +1,9 @@
+.slot {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid rgb(204, 172, 172);
+  box-shadow: 0 2px 3px #ccc;
+  padding: 10px;
+  margin: auto 10px;
+  margin-top: 3%;
+}

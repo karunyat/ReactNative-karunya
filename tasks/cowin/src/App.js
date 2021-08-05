@@ -4,9 +4,9 @@ import Home from "./components/home";
 import Login from "./components/login";
 import SlotBooking from "./components/slotBooking";
 import cowin from "./cowin.PNG";
-import "./App.css";
-
-function App() {
+import ByPin from "./components/byPin";
+import ByDist from "./components/byDist";
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
@@ -29,11 +29,13 @@ function App() {
             <Route exact path="/" component={Home}></Route>
             <Route path="/login" component={Login}></Route>
             <Route path="/slotBooking" component={SlotBooking}></Route>
+            <Route path="/byPin" component={ByPin}></Route>
+            <Route path="/byDist" component={ByDist}></Route>
           </Switch>
         </div>
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

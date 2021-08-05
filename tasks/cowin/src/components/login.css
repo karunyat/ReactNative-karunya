@@ -10,9 +10,9 @@ input[type="text"] {
 h2 {
   margin: 15px;
 }
-.Container {
+.loginForm {
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 30%;
   padding: 25px;
   width: 31%;

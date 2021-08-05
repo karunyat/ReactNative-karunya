@@ -28,6 +28,7 @@
   font-weight: bolder;
   color: #ccc;
   background-color: rgb(39, 39, 104);
+  width: 50%;
 }
 .SlotBtn:hover {
   color: black;

@@ -1,0 +1,31 @@
+.ByDistValues {
+  position: absolute;
+  top: 15%;
+  box-sizing: border-box;
+  left: 10%;
+  width: 80%;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 10px;
+  margin: 10px auto;
+}
+.subTitle {
+  margin: 0 15px;
+}
+.searchBtn {
+  float: right;
+  width: 30%;
+  background-color: rgb(34, 34, 77);
+  color: white;
+  border-radius: 10px;
+  font-size: larger;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+.searchBtn:hover {
+  background-color: rgb(104, 116, 158);
+}
+.slots {
+  margin-top: 10%;
+}

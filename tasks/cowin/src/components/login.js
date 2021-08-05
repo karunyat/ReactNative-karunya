@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./login.css";
+import "./login.css";
 import axios from "axios";
 const Login = (props) => {
   const [mobileNo, setMobileNo] = useState("");
@@ -26,48 +26,44 @@ const Login = (props) => {
     // props.history.push("/slotBooking");
   };
   return (
-    <div>
+    <div className="loginForm">
       <form className="form">
-        <div className="Container">
-          <center>
-            <h2>Register or Sign-in for vaccination</h2>
+        <center>
+          <h2>Register or Sign-in for vaccination</h2>
 
-            <label>
-              An OTP will be sent to your mobile number for verification{" "}
-            </label>
+          <label>
+            An OTP will be sent to your mobile number for verification{" "}
+          </label>
 
-            <input
-              type="text"
-              placeholder="Enter your mobile number"
-              value={mobileNo}
-              onChange={(e) => setMobileNo(e.target.value)}
-              required
-            />
-            <br />
-            {error && <p className="error">{error}</p>}
-            {/* <button>GET OTP</button> */}
+          <input
+            type="text"
+            placeholder="Enter your mobile number"
+            value={mobileNo}
+            onChange={(e) => setMobileNo(e.target.value)}
+          />
+          <br />
+          {error && <p className="error">{error}</p>}
+          {/* <button>GET OTP</button> */}
 
-            <h2>OTP Verification</h2>
+          <h2>OTP Verification</h2>
 
-            <label>An OTP has been sent to your mobile number </label>
+          <label>An OTP has been sent to your mobile number </label>
 
-            <input
-              type="text"
-              placeholder="Enter OTP"
-              value={OTP}
-              onChange={(e) => setOTP(e.target.value)}
-              requried
-            />
-            <br />
-            <button
-              onClick={proceedHandler}
-              value={loading ? "Loading...." : "Login...."}
-              disabled={loading}
-            >
-              Verify & Proceed
-            </button>
-          </center>
-        </div>
+          <input
+            type="text"
+            placeholder="Enter OTP"
+            value={OTP}
+            onChange={(e) => setOTP(e.target.value)}
+          />
+          <br />
+          <button
+            onClick={proceedHandler}
+            value={loading ? "Loading...." : "Login...."}
+            disabled={loading}
+          >
+            Verify & Proceed
+          </button>
+        </center>
       </form>
     </div>
   );
