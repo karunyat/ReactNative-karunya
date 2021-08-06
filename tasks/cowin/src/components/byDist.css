@@ -29,3 +29,11 @@
 .slots {
   margin-top: 10%;
 }
+.select {
+  padding: 10px 15px;
+  margin: 10px 15px;
+}
+.note {
+  padding: 10px 15px;
+  margin: 10px 15px;
+}
