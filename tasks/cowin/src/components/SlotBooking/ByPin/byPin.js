@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Slots from "./slots";
+import Slots from "../slots";
 import "./byPin.css";
 import axios from "axios";
 
@@ -12,7 +12,7 @@ const ByPin = () => {
     e.preventDefault();
     var result = await axios.get(urlpin);
     setSlots(result.data.sessions);
-    console.log(result.data);
+    //console.log(result.data);
   }
   return (
     <div className="ByPinValues">
@@ -44,6 +44,7 @@ const ByPin = () => {
           return <Slots key={slot.center_id} slot={slot} />;
         })}
       </div>
+      <p className="note">No more vaccination centers Avaliable....</p>
     </div>
   );
 };

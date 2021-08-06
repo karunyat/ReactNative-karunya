@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
-import Home from "./components/home";
-import Login from "./components/login";
-import SlotBooking from "./components/slotBooking";
+import Home from "./components/Home/home";
+import Login from "./components/Login/login";
+import SlotBooking from "./components/SlotBooking/slotBooking";
 import cowin from "./cowin.PNG";
-import ByPin from "./components/byPin";
-import ByDist from "./components/byDist";
+import ByPin from "./components/SlotBooking/ByPin/byPin";
+import ByDist from "./components/SlotBooking/ByDist/byDist";
 const App = () => {
   return (
     <div className="App">
