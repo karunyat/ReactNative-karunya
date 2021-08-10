@@ -1,30 +1,12 @@
 import React, { useState } from "react";
 import "./login.css";
-import axios from "axios";
 
+import auth from "../../auth";
 const Login = (props) => {
   const [mobileNo, setMobileNo] = useState("");
   const [OTP, setOTP] = useState("");
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
 
-  const proceedHandler = () => {
-    setError(null);
-    setLoading(true);
-    axios
-      .post("https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP", {
-        mobile: mobileNo,
-      })
-      .then((res) => {
-        setLoading(false);
-        //console.log("response >>>", res);
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log("error >>>", err);
-      });
-    // props.history.push("/slotBooking");
-  };
   return (
     <div className="loginForm">
       <form className="form">
@@ -57,9 +39,11 @@ const Login = (props) => {
           />
           <br />
           <button
-            onClick={proceedHandler}
-            value={loading ? "Loading...." : "Login...."}
-            disabled={loading}
+            onClick={() =>
+              auth.proceedHandler(() => {
+                props.history.push("./slotBooking");
+              })
+            }
           >
             Verify & Proceed
           </button>

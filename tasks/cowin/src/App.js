@@ -6,6 +6,7 @@ import SlotBooking from "./components/SlotBooking/slotBooking";
 import cowin from "./cowin.PNG";
 import ByPin from "./components/SlotBooking/ByPin/byPin";
 import ByDist from "./components/SlotBooking/ByDist/byDist";
+import { ProtectedRoute } from "./protectedRoute";
 const App = () => {
   return (
     <div className="App">
@@ -28,9 +29,12 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route path="/login" component={Login}></Route>
-            <Route path="/slotBooking" component={SlotBooking}></Route>
-            <Route path="/byPin" component={ByPin}></Route>
-            <Route path="/byDist" component={ByDist}></Route>
+            <ProtectedRoute
+              path="/slotBooking"
+              component={SlotBooking}
+            ></ProtectedRoute>
+            <ProtectedRoute path="/byPin" component={ByPin}></ProtectedRoute>
+            <ProtectedRoute path="/byDist" component={ByDist}></ProtectedRoute>
           </Switch>
         </div>
       </BrowserRouter>
