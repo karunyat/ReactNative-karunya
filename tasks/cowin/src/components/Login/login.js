@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
 import axios from "axios";
+
 const Login = (props) => {
   const [mobileNo, setMobileNo] = useState("");
   const [OTP, setOTP] = useState("");
@@ -17,7 +18,6 @@ const Login = (props) => {
       .then((res) => {
         setLoading(false);
         //console.log("response >>>", res);
-        props.history.push("/slotBooking");
       })
       .catch((err) => {
         setLoading(false);

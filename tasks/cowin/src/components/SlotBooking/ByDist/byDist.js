@@ -36,7 +36,6 @@ const ByDist = (props) => {
     setDistricts(result.data.districts);
     //console.log(result.data.districts);
   }
-
   return (
     <div className="ByDistValues">
       <h2 className="title">Search by District</h2>
@@ -81,13 +80,17 @@ const ByDist = (props) => {
           Search
         </button>
       </form>
-      <div className="slots">
-        {slots.map((slot) => {
-          return <Slots key={slot.center_id} slot={slot} />;
-        })}
-      </div>
-
-      <p className="note">No more vaccination centers Avaliable....</p>
+      {slots.length > 0 ? (
+        <div className="slots">
+          {slots.map((slot) => {
+            return <Slots key={slot.center_id} slot={slot} />;
+          })}
+        </div>
+      ) : (
+        <div className="slots">
+          <p className="note">No slots Avaliable</p>
+        </div>
+      )}
     </div>
   );
 };

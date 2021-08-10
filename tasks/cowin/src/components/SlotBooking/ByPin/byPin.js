@@ -8,11 +8,12 @@ const ByPin = () => {
   const [date, SetDate] = useState("");
   const [slots, setSlots] = useState([]);
   var urlpin = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${PIN}&date=${date}`;
+
   async function getByPin(e) {
     e.preventDefault();
     var result = await axios.get(urlpin);
     setSlots(result.data.sessions);
-    //console.log(result.data);
+    // console.log(result.data);
   }
   return (
     <div className="ByPinValues">
@@ -39,12 +40,17 @@ const ByPin = () => {
           Search
         </button>
       </form>
-      <div className="slots">
-        {slots.map((slot) => {
-          return <Slots key={slot.center_id} slot={slot} />;
-        })}
-      </div>
-      <p className="note">No more vaccination centers Avaliable....</p>
+      {slots.length > 0 ? (
+        <div className="slots">
+          {slots.map((slot) => {
+            return <Slots key={slot.center_id} slot={slot} />;
+          })}
+        </div>
+      ) : (
+        <div className="slots">
+          <p className="note">No slots Avaliable</p>
+        </div>
+      )}
     </div>
   );
 };

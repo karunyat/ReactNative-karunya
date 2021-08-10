@@ -31,7 +31,6 @@ const SlotBooking = (props) => {
         <button className="ByDist" onClick={byDistHandler}>
           Search by District
         </button>
-        <div></div>
       </div>
     </div>
   );

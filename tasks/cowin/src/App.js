@@ -17,7 +17,7 @@ const App = () => {
           <NavLink exact activeClassName="active" to="/">
             Home
           </NavLink>
-          <NavLink activeClassName="active" to="/login">
+          <NavLink exact activeClassName="active" to="/login">
             Registration/Sign-in
           </NavLink>
           {/* <NavLink activeClassName="active" to="/slotBooking">

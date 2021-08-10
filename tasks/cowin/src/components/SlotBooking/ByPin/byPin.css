@@ -29,3 +29,9 @@
 .slots {
   margin-top: 10%;
 }
+.note {
+  padding: 10px 15px;
+  margin: 10px 15px;
+  font-weight: bold;
+  font-size: large;
+}
