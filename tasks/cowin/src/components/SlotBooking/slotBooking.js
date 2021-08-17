@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./slotBooking.css";
+import "./SlotBooking.css";
 
 const SlotBooking = (props) => {
   const byPinHandler = () => {
