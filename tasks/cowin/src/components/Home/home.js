@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.css";
+import "./Home.css";
 const Home = (props) => {
   const bookSlotHandler = () => {
     props.history.push("/login");

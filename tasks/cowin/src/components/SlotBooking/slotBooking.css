@@ -14,3 +14,17 @@
   display: inline-flex;
   width: 50%;
 }
+button {
+  width: 93%;
+  margin: 15px;
+  background-color: rgb(34, 34, 77);
+  color: white;
+  border-radius: 10px;
+  font-size: larger;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(104, 116, 158);
+}

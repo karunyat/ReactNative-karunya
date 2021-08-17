@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Slots from "../slots";
-import "./byPin.css";
+import Slots from "../Slots";
+import "./ByPin.css";
 import axios from "axios";
 
 const ByPin = () => {
@@ -11,39 +11,44 @@ const ByPin = () => {
 
   async function getByPin(e) {
     e.preventDefault();
+
     var result = await axios.get(urlpin);
     setSlots(result.data.sessions);
     // console.log(result.data);
   }
+
   return (
     <div className="ByPinValues">
       <h2 className="title">Search by PIN</h2>
       <small className="subTitle">
         Please enter the PIN and Date for slot booking
       </small>
-      <form>
+      <form onSubmit={getByPin}>
         <input
+          required
           className="Pin"
           type="text"
-          placeholder="Enter PIN"
+          maxLength="6"
+          placeholder="Enter 6 digits PIN code"
+          pattern="[0-9]{6}"
           value={PIN}
           onChange={(e) => SetPIN(e.target.value)}
         ></input>
         <input
+          required
           className="date"
           type="text"
           placeholder="Enter date dd-mm-yyyy"
+          pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
           value={date}
           onChange={(e) => SetDate(e.target.value)}
         ></input>
-        <button className="searchBtn" onClick={getByPin}>
-          Search
-        </button>
+        <input type="submit" value="Search" className="search" />
       </form>
       {slots.length > 0 ? (
         <div className="slots">
           {slots.map((slot) => {
-            return <Slots key={slot.center_id} slot={slot} />;
+            return <Slots key={slot.session_id} slot={slot} />;
           })}
         </div>
       ) : (

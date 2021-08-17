@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
-import Home from "./components/Home/home";
-import Login from "./components/Login/login";
-import SlotBooking from "./components/SlotBooking/slotBooking";
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import SlotBooking from "./components/SlotBooking/SlotBooking";
 import cowin from "./cowin.PNG";
-import ByPin from "./components/SlotBooking/ByPin/byPin";
-import ByDist from "./components/SlotBooking/ByDist/byDist";
+import ByPin from "./components/SlotBooking/ByPin/ByPin";
+import ByDist from "./components/SlotBooking/ByDist/ByDist";
 import { ProtectedRoute } from "./protectedRoute";
+
 const App = () => {
   return (
     <div className="App">
@@ -18,9 +19,11 @@ const App = () => {
           <NavLink exact activeClassName="active" to="/">
             Home
           </NavLink>
+
           <NavLink exact activeClassName="active" to="/login">
             Registration/Sign-in
           </NavLink>
+
           {/* <NavLink activeClassName="active" to="/slotBooking">
             Slot Booking
           </NavLink> */}

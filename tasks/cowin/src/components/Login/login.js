@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import "./login.css";
+import "./Login.css";
 
 import auth from "../../auth";
 const Login = (props) => {
   const [mobileNo, setMobileNo] = useState("");
   const [OTP, setOTP] = useState("");
-  const [error, setError] = useState(null);
-
+  const [error] = useState(null);
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    auth.proceedHandler(() => {
+      props.history.push("./slotBooking");
+    });
+  };
   return (
     <div className="loginForm">
-      <form className="form">
+      <form className="form" onSubmit={onSubmitHandler}>
         <center>
           <h2>Register or Sign-in for vaccination</h2>
 
@@ -18,8 +23,11 @@ const Login = (props) => {
           </label>
 
           <input
+            required
+            maxLength="10"
+            pattern="[0-9]{10}"
             type="text"
-            placeholder="Enter your mobile number"
+            placeholder="Enter 10 digits mobile number"
             value={mobileNo}
             onChange={(e) => setMobileNo(e.target.value)}
           />
@@ -32,21 +40,16 @@ const Login = (props) => {
           <label>An OTP has been sent to your mobile number </label>
 
           <input
+            required
             type="text"
+            maxLength="6"
             placeholder="Enter OTP"
             value={OTP}
             onChange={(e) => setOTP(e.target.value)}
           />
           <br />
-          <button
-            onClick={() =>
-              auth.proceedHandler(() => {
-                props.history.push("./slotBooking");
-              })
-            }
-          >
-            Verify & Proceed
-          </button>
+
+          <input type="submit" value="Verify & Proceed" className="vp" />
         </center>
       </form>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Slots from "../slots";
-import "./byDist.css";
+import Slots from "../Slots";
+import "./ByDist.css";
 import axios from "axios";
 
 const ByDist = (props) => {
@@ -10,7 +10,25 @@ const ByDist = (props) => {
   const [States, setStates] = useState([]);
   const [state_id, setState_id] = useState("");
   const [Districts, setDistricts] = useState([]);
-
+  const Days = [...Array(31 + 1).keys()].slice(1);
+  const Months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const years = ["2021", "2022", "2023"];
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
   var urlByDist = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${Dist_id}&date=${date}`;
 
   var urlgetStates = `https://cdn-api.co-vin.in/api/v2/admin/location/states`;
@@ -19,7 +37,10 @@ const ByDist = (props) => {
 
   async function getByDist(e) {
     e.preventDefault();
+    SetDist_id(`${Dist_id}`);
+    SetDate(`${day}-${month}-${year}`);
     var result = await axios.get(urlByDist);
+
     setSlots(result.data.sessions);
     //console.log(result.data);
   }
@@ -32,6 +53,7 @@ const ByDist = (props) => {
 
   async function getDist(e) {
     e.preventDefault();
+
     var result = await axios.get(urlgetDist);
     setDistricts(result.data.districts);
     //console.log(result.data.districts);
@@ -68,13 +90,38 @@ const ByDist = (props) => {
             </option>
           ))}
         </select>
-        <input
+        <br />
+        <select className="select" onChange={(e) => setDay(e.target.value)}>
+          <option value="">DD</option>
+          {Days.map((day, i) => (
+            <option key={i} value={day}>
+              {day}
+            </option>
+          ))}
+        </select>
+        <select className="select" onChange={(e) => setMonth(e.target.value)}>
+          <option value="">MM</option>
+          {Months.map((month, i) => (
+            <option key={i} value={i + 1}>
+              {month}
+            </option>
+          ))}
+        </select>
+        <select className="select" onChange={(e) => setYear(e.target.value)}>
+          <option value="">Year</option>
+          {years.map((year, i) => (
+            <option key={i} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
+        {/* <input
           className="date"
           type="text"
           placeholder="Enter date dd-mm-yyyy"
           value={date}
           onChange={(e) => SetDate(e.target.value)}
-        ></input>
+        ></input> */}
 
         <button className="searchBtn" onClick={getByDist}>
           Search
@@ -83,7 +130,7 @@ const ByDist = (props) => {
       {slots.length > 0 ? (
         <div className="slots">
           {slots.map((slot) => {
-            return <Slots key={slot.center_id} slot={slot} />;
+            return <Slots key={slot.session_id} slot={slot} />;
           })}
         </div>
       ) : (

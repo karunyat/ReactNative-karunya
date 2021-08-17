@@ -1,4 +1,5 @@
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   width: 93%;
   margin: 17px;
   padding: 12px 20px;
@@ -17,7 +18,7 @@ h2 {
   padding: 25px;
   width: 31%;
 }
-button {
+.vp {
   width: 93%;
   margin: 15px;
   background-color: rgb(34, 34, 77);
