@@ -1,0 +1,16 @@
+.logo img {
+  float: left;
+  width: 350px;
+  height: auto;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.header {
+  background: rgb(255, 123, 0);
+  height: 80px;
+  /* margin: 0;
+  padding: 0; */
+}
+/* .content {
+  padding: 25px;
+} */
