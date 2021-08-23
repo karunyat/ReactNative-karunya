@@ -29,7 +29,9 @@ const Home = (props) => {
           <li>
             CART <span>{props.crt}</span>
           </li>
-          <li onClick={checkOutHandler}>CHECKOUT</li>
+          <li className="checkOut" onClick={checkOutHandler}>
+            CHECKOUT
+          </li>
         </ul>
       </div>
       <section className="grid">
