@@ -32,6 +32,7 @@ function App() {
             <Route exact path="/" component={Login}></Route>
             <Route path="/Home" component={Home}></Route>
             <Route path="/CheckOut" component={CheckOut}></Route>
+            <Route path="/Login" component={Login}></Route>
           </Switch>
         </div>
       </BrowserRouter>

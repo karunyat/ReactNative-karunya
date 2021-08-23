@@ -3,12 +3,8 @@ import "./Login.css";
 import { connect } from "react-redux";
 import * as actionTypes from "../Store/actions";
 const Login = (props) => {
-  // const goToHome = () => {
-  //   props.onNewUser(user);
-  //   props.history.push("/Home");
-  // };
   const [user, setUser] = useState("");
-  // console.log(user);
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
     props.onNewUser(user);

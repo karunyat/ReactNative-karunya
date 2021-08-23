@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import DisplayDog from "./DisplayDog";
 import "./Home.css";
 import { connect } from "react-redux";
 import * as actionTypes from "../Store/actions";
-import Login from "./Login";
+
 const Home = (props) => {
-  const [dogs, setDogs] = useState([]);
   const Dogs_URL = "https://dog.ceo/api/breeds/image/random/10";
   useEffect(() => {
     loadData();
@@ -15,8 +14,18 @@ const Home = (props) => {
     const data = await res.json();
     console.log(data);
     const Dogs = data.message;
+    // const fdogs = Object.assign({}, Dogs);
+    // console.log("fdogs:", fdogs[( = 3)]);
+
+    // const Dogs = Object.assign(
+    //   ...Object.keys(data.message).map((k) => ({
+    //     [k]: { id: k, img: data.message[k] },
+    //   }))
+    // );
+
     props.onLoadDogs(Dogs);
   };
+
   const checkOutHandler = () => {
     props.history.push("/CheckOut");
   };
@@ -25,7 +34,7 @@ const Home = (props) => {
     <div className="Items">
       <div className="header-home">
         <ul>
-          <li>HI! {props.usr}</li>
+          <span>HI! {props.usr}</span>
           <li>
             CART <span>{props.crt}</span>
           </li>
@@ -58,7 +67,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddedDog: () => dispatch({ type: actionTypes.ADD_DOG }),
+    onAddedDog: (id) => dispatch({ type: actionTypes.ADD_DOG }),
     onRemoveDog: () => dispatch({ type: actionTypes.REMOVE_DOG }),
     onLoadDogs: (Dogs) => dispatch({ type: actionTypes.LOAD_DOGS, Dogs: Dogs }),
   };

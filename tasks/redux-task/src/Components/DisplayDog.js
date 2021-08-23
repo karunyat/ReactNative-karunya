@@ -1,4 +1,3 @@
-import react from "react";
 import "./DisplayDog.css";
 import { connect } from "react-redux";
 import * as actionTypes from "../Store/actions";

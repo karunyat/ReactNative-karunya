@@ -12,6 +12,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.ADD_DOG:
       return {
         ...state,
+        ...action.payload,
         cart: state.cart + 1,
       };
     case actionTypes.REMOVE_DOG:
@@ -27,9 +28,17 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_USER:
       return {
         ...state,
-        user: state.user.concat(action.user),
+        user: (state.user = action.user),
       };
+    case actionTypes.LOGOUT:
+      return {
+        ...state,
+        user: (state.user = ""),
+        cart: (state.cart = 0),
+      };
+    default: {
+      return state;
+    }
   }
-  return state;
 };
 export default reducer;

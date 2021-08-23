@@ -1,6 +1,5 @@
 .header-home {
   background: orange;
-  /* float: right; */
 }
 li {
   display: inline-block;
@@ -9,4 +8,7 @@ li {
 .checkOut {
   cursor: pointer;
   color: aliceblue;
+}
+span {
+  font-weight: bolder;
 }
