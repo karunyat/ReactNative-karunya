@@ -2,7 +2,8 @@ import * as actionTypes from "./actions";
 
 const initialState = {
   cart: 0,
-  price: `${Math.floor(Math.random() * (10 + 1)) * 100}`,
+  // price: `${Math.floor(Math.random() * (10 + 1)) * 100}`,
+  price: 0,
   user: "",
   Dogs: [],
 };
@@ -24,6 +25,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         Dogs: state.Dogs.concat(action.Dogs),
+        price: `${Math.floor(Math.random() * (10 + 1)) * 100}`,
       };
     case actionTypes.SET_USER:
       return {
@@ -35,6 +37,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: (state.user = ""),
         cart: (state.cart = 0),
+        Dogs: (state.Dogs = []),
+        price: (state.price = 0),
       };
     default: {
       return state;
