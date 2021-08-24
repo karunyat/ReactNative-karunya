@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import logo from "./logo.PNG";
 
 import Login from "./Components/Login/Login";
@@ -15,18 +15,6 @@ function App() {
           <div className="logo">
             <img src={logo} alt="Dogs-N-Pups" />
           </div>
-
-          {/* <NavLink exact activeClassName="active" to="/">
-            Login
-          </NavLink>
-
-          <NavLink exact activeClassName="active" to="/Home">
-            Home
-          </NavLink>
-
-          <NavLink activeClassName="active" to="/CheckOut">
-            CheckOut
-          </NavLink> */}
         </div>
         <div className="content">
           <Switch>

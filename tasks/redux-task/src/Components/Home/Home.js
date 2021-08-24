@@ -12,10 +12,8 @@ const Home = (props) => {
   const loadData = async () => {
     const res = await fetch(Dogs_URL);
     const data = await res.json();
-    console.log(data);
+    console.log(data.message);
     const Dogs = data.message;
-    // const fdogs = Object.assign({}, Dogs);
-    // console.log("fdogs:", fdogs[( = 3)]);
 
     // const Dogs = Object.assign(
     //   ...Object.keys(data.message).map((k) => ({

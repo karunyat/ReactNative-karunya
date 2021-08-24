@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 const CheckOut = (props) => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    return alert("Your Order has been successfully placed!!");
   };
   const onLogoutHandler = () => {
     props.onLogout();
@@ -53,6 +54,7 @@ const CheckOut = (props) => {
             placeholder="Enter contact No"
             required
             pattern="[0-9]{10}"
+            maxLength="10"
           />
 
           <button className="checkOutBtn" type="submit">

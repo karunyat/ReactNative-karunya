@@ -1,6 +1,6 @@
 import "./DisplayDog.css";
 import { connect } from "react-redux";
-import * as actionTypes from "../../../Store/actions";
+
 const DisplayDog = (props) => {
   return (
     <div className="DogCards">
@@ -36,9 +36,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onAddedDog: (id) => dispatch({ type: actionTypes.ADD_DOG, dogId: id }),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(DisplayDog);
+export default connect(mapStateToProps)(DisplayDog);
