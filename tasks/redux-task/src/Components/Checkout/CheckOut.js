@@ -1,6 +1,7 @@
 import React from "react";
-import "./Login.css";
-import * as actionTypes from "../Store/actions";
+
+import "../Login/Login.css";
+import * as actionTypes from "../../Store/actions";
 import { connect } from "react-redux";
 const CheckOut = (props) => {
   const onSubmitHandler = (e) => {

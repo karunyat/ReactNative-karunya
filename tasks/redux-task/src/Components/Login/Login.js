@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Login.css";
 import { connect } from "react-redux";
-import * as actionTypes from "../Store/actions";
+import * as actionTypes from "../../Store/actions";
 const Login = (props) => {
   const [user, setUser] = useState("");
 

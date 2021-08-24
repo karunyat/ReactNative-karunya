@@ -29,12 +29,13 @@ input[type="password"] {
   width: 100%;
 }
 
+.loginBtn:hover {
+  opacity: 0.8;
+}
 .checkOutBtn:hover {
   opacity: 0.8;
 }
-.loginBtn :hover {
-  opacity: 0.8;
-}
+
 .container {
   padding: 30px;
 }
@@ -44,7 +45,7 @@ span.psw {
 }
 .logoutBtn {
   float: right;
-  background-color: rgb(236, 108, 2);
+  background-color: rgb(248, 124, 8);
   color: white;
   padding: 14px 20px;
   margin: 8px 5px;

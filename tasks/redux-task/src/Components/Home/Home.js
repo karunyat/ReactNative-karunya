@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import DisplayDog from "./DisplayDog";
+import DisplayDog from "./DisplayDogs/DisplayDog";
 import "./Home.css";
 import { connect } from "react-redux";
-import * as actionTypes from "../Store/actions";
+import * as actionTypes from "../../Store/actions";
 
 const Home = (props) => {
   const Dogs_URL = "https://dog.ceo/api/breeds/image/random/10";

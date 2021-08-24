@@ -2,9 +2,10 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
 import logo from "./logo.PNG";
-import Login from "./Components/Login";
-import Home from "./Components/Home";
-import CheckOut from "./Components/CheckOut";
+
+import Login from "./Components/Login/Login";
+import Home from "./Components/Home/Home";
+import CheckOut from "./Components/Checkout/CheckOut";
 function App() {
   return (
     <div className="App">

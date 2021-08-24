@@ -2,7 +2,7 @@ import * as actionTypes from "./actions";
 
 const initialState = {
   cart: 0,
-  price: `${Math.floor(Math.random() * 10) * 100}`,
+  price: `${Math.floor(Math.random() * (10 + 1)) * 100}`,
   user: "",
   Dogs: [],
 };

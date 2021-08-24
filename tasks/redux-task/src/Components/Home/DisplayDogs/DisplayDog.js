@@ -1,6 +1,6 @@
 import "./DisplayDog.css";
 import { connect } from "react-redux";
-import * as actionTypes from "../Store/actions";
+import * as actionTypes from "../../../Store/actions";
 const DisplayDog = (props) => {
   return (
     <div className="DogCards">
@@ -9,10 +9,8 @@ const DisplayDog = (props) => {
           <img className="DogImg" src={props.image} alt="name" />
 
           <h3>
-            Breed:
             {props.breed}
-            <br />
-            price:${props.prc}
+            <br />${props.prc}
           </h3>
 
           <button className="addToCartBtn" onClick={props.clicked}>
