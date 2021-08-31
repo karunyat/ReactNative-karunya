@@ -6,15 +6,20 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import reducer from "./Store/Reducers";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 const store = createStore(
   reducer,
 
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+const persistor = persistStore(store);
 ReactDOM.render(
   <Provider store={store}>
     {/* <React.StrictMode> */}
-    <App />
+    <PersistGate persistor={persistor}>
+      <App />
+    </PersistGate>
     {/* </React.StrictMode> */}
   </Provider>,
   document.getElementById("root")

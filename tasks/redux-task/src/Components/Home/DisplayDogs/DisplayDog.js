@@ -13,16 +13,21 @@ const DisplayDog = (props) => {
             <br />${props.prc}
           </h3>
 
-          <button className="addToCartBtn" onClick={props.clicked}>
+          <button
+            className="addToCartBtn"
+            onClick={() => {
+              props.clicked();
+            }}
+          >
             ADD TO CART
           </button>
-          {props.crt > 0 ? (
+          {/* {props.crt > 0 ? (
             <button className="rmFrmCrt" onClick={props.removed}>
               REMOVE FROM CART
             </button>
           ) : (
             <button className="rmFrmCrt-disable">REMOVE FROM CART</button>
-          )}
+          )} */}
         </div>
       </article>
     </div>

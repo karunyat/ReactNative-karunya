@@ -12,22 +12,29 @@ const Home = (props) => {
   const loadData = async () => {
     const res = await fetch(Dogs_URL);
     const data = await res.json();
-    console.log(data.message);
-    const Dogs = data.message;
+    // console.log(data.message);
+    // const Dogs = data.message;
 
-    // const Dogs = Object.assign(
-    //   ...Object.keys(data.message).map((k) => ({
-    //     [k]: { id: k, img: data.message[k] },
-    //   }))
-    // );
+    var Dogs = data.message.map(function (dog, i) {
+      return { id: i, img: dog, key: Math.random() };
+    });
+    console.log("Dogs:", Dogs);
 
     props.onLoadDogs(Dogs);
   };
-
+  const selectHandler = (id, img, key) => {
+    props.onSelectedItem(id, img, key);
+    props.onCartUpdate();
+  };
+  //console.log(props.selected_items);
   const checkOutHandler = () => {
     props.history.push("/CheckOut");
   };
-  console.log(props.Dgs);
+  // console.log(props.Dgs);
+  const onRemoveHandler = (key) => {
+    props.onRemoveDog(key);
+    props.onCartUpdate();
+  };
   return (
     <div className="Items">
       <div className="header-home">
@@ -45,10 +52,10 @@ const Home = (props) => {
         {props.Dgs.map((dog, i) => (
           <DisplayDog
             key={i}
-            image={dog}
-            breed={dog.substr(30, dog.lastIndexOf("/") - 30)}
-            clicked={props.onAddedDog}
-            removed={props.onRemoveDog}
+            image={dog.img}
+            breed={dog.img.substr(30, dog.img.lastIndexOf("/") - 30)}
+            clicked={() => selectHandler(dog.id, dog.img, dog.key)}
+            removed={() => onRemoveHandler(dog.key)}
           />
         ))}
       </section>
@@ -57,17 +64,25 @@ const Home = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    crt: state.cart,
     usr: state.user,
+    crt: state.cart,
     Dgs: state.Dogs,
+    price: state.prc,
+    selected_items: state.selected_items,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddedDog: (id) => dispatch({ type: actionTypes.ADD_DOG }),
-    onRemoveDog: () => dispatch({ type: actionTypes.REMOVE_DOG }),
+    onRemoveDog: (itemkey) =>
+      dispatch({ type: actionTypes.REMOVE_DOG, itemKey: itemkey }),
     onLoadDogs: (Dogs) => dispatch({ type: actionTypes.LOAD_DOGS, Dogs: Dogs }),
+    onSelectedItem: (id, img, key) =>
+      dispatch({
+        type: actionTypes.ON_SELECT,
+        itemData: { id: id, img: img, key: key },
+      }),
+    onCartUpdate: () => dispatch({ type: actionTypes.UPDATE_CART }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

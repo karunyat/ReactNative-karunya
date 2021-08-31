@@ -1,9 +1,16 @@
 import React from "react";
 
 import "../Login/Login.css";
+import "./Items.css";
 import * as actionTypes from "../../Store/actions";
 import { connect } from "react-redux";
+import selected_items from "./Items";
+import Item from "./Items";
 const CheckOut = (props) => {
+  const onRemoveHandler = (key) => {
+    props.onRemoveDog(key);
+    props.onCartUpdate();
+  };
   const onSubmitHandler = (e) => {
     e.preventDefault();
     return alert("Your Order has been successfully placed!!");
@@ -18,7 +25,14 @@ const CheckOut = (props) => {
         {" "}
         LOGOUT{" "}
       </button>
-      <form onSubmit={onSubmitHandler}>
+      {props.selected_items.map((item) => (
+        <Item
+          breed={item.img.substr(30, item.img.lastIndexOf("/") - 30)}
+          img={item.img}
+          removed={() => onRemoveHandler(item.key)}
+        />
+      ))}
+      <form className="Checkout_form" onSubmit={onSubmitHandler}>
         <div className="container">
           <label className="uname">
             <b>Items in CART :</b>
@@ -69,11 +83,15 @@ const mapStateToProps = (state) => {
   return {
     usr: state.user,
     crt: state.cart,
+    selected_items: state.selected_items,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    onRemoveDog: (itemkey) =>
+      dispatch({ type: actionTypes.REMOVE_DOG, itemKey: itemkey }),
     onLogout: (user) => dispatch({ type: actionTypes.LOGOUT, user: user }),
+    onCartUpdate: () => dispatch({ type: actionTypes.UPDATE_CART }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CheckOut);
