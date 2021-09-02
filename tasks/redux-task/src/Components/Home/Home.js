@@ -1,29 +1,12 @@
-import { useEffect } from "react";
 import DisplayDog from "./DisplayDogs/DisplayDog";
 import "./Home.css";
 import { connect } from "react-redux";
 import * as actionTypes from "../../Store/actions";
 
 const Home = (props) => {
-  const Dogs_URL = "https://dog.ceo/api/breeds/image/random/10";
-  useEffect(() => {
-    loadData();
-  }, []);
-  const loadData = async () => {
-    const res = await fetch(Dogs_URL);
-    const data = await res.json();
-    // console.log(data.message);
-    // const Dogs = data.message;
-
-    var Dogs = data.message.map(function (dog, i) {
-      return { id: i, img: dog, key: Math.random() };
-    });
-    console.log("Dogs:", Dogs);
-
-    props.onLoadDogs(Dogs);
-  };
   const selectHandler = (id, img, key) => {
     props.onSelectedItem(id, img, key);
+
     props.onCartUpdate();
   };
   //console.log(props.selected_items);
@@ -67,7 +50,7 @@ const mapStateToProps = (state) => {
     usr: state.user,
     crt: state.cart,
     Dgs: state.Dogs,
-    price: state.prc,
+
     selected_items: state.selected_items,
   };
 };

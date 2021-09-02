@@ -6,6 +6,7 @@ import logo from "./logo.PNG";
 import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 import CheckOut from "./Components/Checkout/CheckOut";
+import { ProtectedRoute } from "./ProtectedRoute";
 function App() {
   return (
     <div className="App">
@@ -19,9 +20,12 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/" component={Login}></Route>
-            <Route path="/Home" component={Home}></Route>
-            <Route path="/CheckOut" component={CheckOut}></Route>
-            <Route path="/Login" component={Login}></Route>
+            <ProtectedRoute path="/Home" component={Home}></ProtectedRoute>
+            <ProtectedRoute
+              path="/CheckOut"
+              component={CheckOut}
+            ></ProtectedRoute>
+            <ProtectedRoute path="/Login" component={Login}></ProtectedRoute>
           </Switch>
         </div>
       </BrowserRouter>

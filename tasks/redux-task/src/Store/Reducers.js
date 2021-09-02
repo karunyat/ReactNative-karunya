@@ -5,11 +5,10 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart", "user", "selected_items"],
+  whitelist: ["cart", "user", "selected_items", "Dogs", "price"],
 };
 const initialState = {
   cart: 0,
-  // price: `${Math.floor(Math.random() * (10 + 1)) * 100}`,
   price: 0,
   user: "",
   Dogs: [],
@@ -35,7 +34,8 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Dogs: state.Dogs.concat(action.Dogs),
-        price: `${Math.floor(Math.random() * (10 + 1)) + 1 * 100}`,
+        // price: `${Math.floor(Math.random() * (10 + 1)) + 1 * 100}`,
+        price: "107",
       };
     case actionTypes.ON_SELECT: {
       const newSelectedItem = {
@@ -69,4 +69,3 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 export default persistReducer(persistConfig, rootReducer);
-//export default reducer;

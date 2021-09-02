@@ -1,5 +1,5 @@
 import React from "react";
-import "./Slots.css";
+import "./slots.css";
 export default function Slots({ slot }) {
   return (
     <div className="slot">

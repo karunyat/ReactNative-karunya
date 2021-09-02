@@ -4,7 +4,6 @@ import "../Login/Login.css";
 import "./Items.css";
 import * as actionTypes from "../../Store/actions";
 import { connect } from "react-redux";
-import selected_items from "./Items";
 import Item from "./Items";
 const CheckOut = (props) => {
   const onRemoveHandler = (key) => {

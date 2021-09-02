@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Slots from "../Slots";
-import "./ByDist.css";
+import Slots from "../slots";
+import "./byDist.css";
 import axios from "axios";
 
 const ByDist = (props) => {

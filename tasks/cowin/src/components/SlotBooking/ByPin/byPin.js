@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Slots from "../Slots";
-import "./ByPin.css";
+import Slots from "../slots";
+import "./byPin.css";
 import axios from "axios";
 
 const ByPin = () => {

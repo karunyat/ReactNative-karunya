@@ -12,7 +12,6 @@ const DisplayDog = (props) => {
             {props.breed}
             <br />${props.prc}
           </h3>
-
           <button
             className="addToCartBtn"
             onClick={() => {
@@ -21,13 +20,6 @@ const DisplayDog = (props) => {
           >
             ADD TO CART
           </button>
-          {/* {props.crt > 0 ? (
-            <button className="rmFrmCrt" onClick={props.removed}>
-              REMOVE FROM CART
-            </button>
-          ) : (
-            <button className="rmFrmCrt-disable">REMOVE FROM CART</button>
-          )} */}
         </div>
       </article>
     </div>
@@ -36,7 +28,6 @@ const DisplayDog = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    crt: state.cart,
     prc: state.price,
   };
 };

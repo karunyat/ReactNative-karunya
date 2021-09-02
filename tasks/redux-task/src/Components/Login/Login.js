@@ -1,15 +1,34 @@
 import { useState } from "react";
 import "./Login.css";
+import Auth from "../../Auth";
 import { connect } from "react-redux";
 import * as actionTypes from "../../Store/actions";
 const Login = (props) => {
   const [user, setUser] = useState("");
+  const Dogs_URL = "https://dog.ceo/api/breeds/image/random/10";
+  const loadData = async () => {
+    const res = await fetch(Dogs_URL);
+    const data = await res.json();
+    // console.log(data.message);
+    // const Dogs = data.message;
 
+    var Dogs = data.message.map(function (dog, i) {
+      return { id: i, img: dog, key: Math.random() };
+    });
+    // console.log("Dogs:", Dogs);
+
+    props.onLoadDogs(Dogs);
+  };
   const onSubmitHandler = (e) => {
     e.preventDefault();
     props.onNewUser(user);
-    props.history.push("/Home");
+    Auth.LoginHandler(() => {
+      props.history.push("/Home");
+    });
+
+    loadData();
   };
+
   return (
     <div>
       <form onSubmit={onSubmitHandler}>
@@ -40,12 +59,14 @@ const Login = (props) => {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    Dgs: state.Dogs,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onNewUser: (user) => dispatch({ type: actionTypes.SET_USER, user: user }),
+    onLoadDogs: (Dogs) => dispatch({ type: actionTypes.LOAD_DOGS, Dogs: Dogs }),
   };
 };
 
